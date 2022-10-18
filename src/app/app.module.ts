@@ -8,12 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SerieComponent } from './serie/serie.component';
 import { LoginComponent } from './login/login.component';
+import { ClickOutsideDirective } from './click-outside.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     SerieComponent,
-    LoginComponent
+    LoginComponent,
+    ClickOutsideDirective
   ],
   imports: [
     BrowserModule,
