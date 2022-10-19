@@ -1,4 +1,4 @@
-.prueba{
+.main-container{
     position: fixed;
     top: 0;
     left: 0;
@@ -8,11 +8,33 @@
     color: #fff;
 }
 
+.container{
+	width: 100vw;
+	height: 100vh;
+	transition: 0.5s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	right: 0px;
+}
+
 .menu-icon{
 	height: 35px;
 	position: absolute;
 	top: 10px;
 	left: 10px;
+	padding: 5px 0;
+	background-color: #0f0f0f;
+}
+
+.menu-icon:hover{
+	background-color: #161616;
+}
+
+.menu-icon:active{
+	background-color: rgb(32, 32, 32);
+	fill: #e3e3e3;
 }
 
 .nav-container{
@@ -24,4 +46,29 @@
 	background-color: rgb(23, 23, 23);
 	transition: 0.5s;
 	left: 0;
+	overflow: hidden;
+	z-index: 1;
+}
+
+.nav-option{
+	font-family: 'Roboto', sans-serif;
+	text-decoration: none;
+	color: #fff;
+	font-size: 24px;
+}
+
+.nav-option-container{
+	display: inline-flex;
+	border-bottom-left-radius: 50px;
+	border-top-left-radius: 50px;
+	align-items: center;
+	height: 60px;
+}
+
+.nav-option-container:first-of-type{
+	margin-top: 70%;
+}
+
+.nav-option-container:hover{
+	background-color: #0f0f0f;
 }

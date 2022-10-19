@@ -1,4 +1,5 @@
 import { Component, ElementRef } from '@angular/core';
+import navOptions from '../data/navOptions';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ export class AppComponent {
 		this.navbarOpen = !this.navbarOpen;
 		}, 1);
 	}
+  navOptions = navOptions;
   title = 'EA-FrontEnd';
   navbarOpen = false;
 }
