@@ -1,8 +1,8 @@
 <div class="main-container">
   <nav (clickOutside)="navbarOpen = false" class="nav-container" [style]="navbarOpen ? '' : 'left : -20vw'">
     <div *ngFor="let navOption of navOptions" [routerLink]="navOption.path" class="nav-option-container">
-      <img style="margin-left: 60px;" [src]="navOption.icon" alt="option">
-      <a class="nav-option">{{navOption.name}}</a>
+      <img style="margin-left: 60px;" width="25" height="25" [src]="navOption.icon" alt="option">
+      <a style="margin-left: 15px;" class="nav-option">{{navOption.name}}</a>
     </div>
   </nav>
   <div class="container" [style]="navbarOpen ? 'width: 85vw' : ''">

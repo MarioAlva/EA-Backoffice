@@ -1,32 +1,30 @@
 <div class="login-container">
     <div class="login" [style]="clickRegister || clickForgot ? 'margin-right: 260vw; position: absolute' : ''">
         <span class="login-header">Log in</span>
-        <form [formGroup]="requiredForm" novalidate>
-            <input class="login-inputs" type="text" placeholder="Nombre de usuario">
-            <input required minlength="4" style="margin-top: 20px;" class="login-inputs" type="password" placeholder="Contraseña">
-            <div *ngIf="name.errors?.['required']">
-                Password is required.
-            </div>
-            <div *ngIf="name.errors?.['minlength']">
-                Name must be at least 4 characters long.
-            </div>
+            <label>Nombre de usuario:<input style="margin-bottom: 20px;" type="text" placeholder="Nombre de usuario"></label>
+            <label>Contraseña:<input required minlength="4" type="password" placeholder="Contraseña"></label>
             <span class="login-forgot">¿Te has olvidado la contraseña? <a class="auth-link" (click)="clickForgot = true">Click aqui</a></span>
             <button class="login-button"><b>Iniciar sesión</b></button>
-        </form>
 		<span style="display: flex; justify-content: center; align-items: center;" class="login-forgot">¿Aún no tienes una cuenta? <a class="auth-link" (click)="clickRegister = true">Registrate</a></span>
     </div>
     <div class="back-button" [style]="clickRegister || clickForgot ? 'margin-right: 280vw' : ''" (click)="clickRegister = false; clickForgot = false">
     </div>
-    <div class="register" [style]="clickRegister ? 'margin-left: 0vw' : ''">
+    <div style="padding-bottom: 20px; width: 450px;" class="register" [style]="clickRegister ? 'margin-left: 0vw' : ''">
         <span class="login-header">Registrate</span>
-        <input class="login-inputs" type="text" placeholder="Nombre de usuario">
-        <input style="margin-top: 20px;" class="login-inputs" type="password" placeholder="Contraseña">
-        <input style="margin-top: 20px;" class="login-inputs" type="password" placeholder="Repite la contraseña">
+		<label style=" margin-bottom: 20px;">Nombre completo:<input type="text" placeholder="Nombre"></label>
+		<div style="width: 62%; display: inline-flex; justify-content: center; margin-bottom: 20px;">
+			<label style=" margin-right: 4%;">Nombre de usuario<input name="Nombre de usuario" type="text" placeholder="Nombre de usuario"></label>
+			<label style="margin-left: 4%;">Fecha de nacimiento:<input type="date"></label>
+		</div>
+        <label>Contraseña:<input style="margin-bottom: 20px;" type="password" placeholder="Contraseña"></label>
+        <label>Repite la contraseña:<input style="margin-bottom: 20px;" type="password" placeholder="Repite la contraseña"></label>
+		<label style=" margin-bottom: 0px;">Email<input type="text" placeholder="Email"></label>
+		<div style="display: inline-flex; align-items: center; margin-top: 5px;"><input style="width: 16px; margin-right: 10px;" type="radio"> <label style="width: 100%;">He leido y acepto todos los terminos</label></div>
         <button class="login-button"><b>Registrarse</b></button>
     </div>
-    <div class="forgot" [style]="clickForgot ? 'margin-left: 0vw' : ''">
+    <div style="padding-bottom: 20px;" class="forgot" [style]="clickForgot ? 'margin-left: 0vw' : ''">
         <span class="login-header">Recuperar contraseña</span>
-        <input class="login-inputs" type="text" placeholder="Nombre de usuario">
+        <label>Nombre de usuario<input type="text" placeholder="Nombre de usuario"></label>
         <button class="login-button"><b>Recuperar</b></button>
     </div>
 </div>
