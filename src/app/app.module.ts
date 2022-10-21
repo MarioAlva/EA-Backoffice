@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { SerieComponent } from './serie/serie.component';
 import { LoginComponent } from './login/login.component';
 import { ClickOutsideDirective } from './click-outside.directive';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SerieComponent,
     LoginComponent,
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
