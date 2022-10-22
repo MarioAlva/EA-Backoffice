@@ -17,7 +17,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-    transition: 1s;
+    transition: margin-right 1s, width 0s;
 }
 
 .register{
@@ -60,7 +60,7 @@
 	border-radius: 12px;
     background-color: #9B9B9B;
     margin-left: 210vw;
-    transition: 1s;
+    transition: 1s, background-color 0s;
 }
 
 .back-button:hover{
@@ -136,4 +136,13 @@ label{
 .auth-link{
     color : #1d178f;
     cursor: pointer;
+}
+
+.validation-error{
+	color: #b30000;
+	font-size: 12px;
+	font-family: 'Roboto', sans-serif;
+	width: 58%;
+    margin-top: -18px;
+	margin-bottom: 4.4px;
 }

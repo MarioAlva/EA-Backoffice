@@ -9,19 +9,42 @@
     </div>
     <div class="back-button" [style]="clickRegister || clickForgot ? 'margin-right: 280vw' : ''" (click)="clickRegister = false; clickForgot = false">
     </div>
-    <div style="padding-bottom: 20px; width: 450px;" class="register" [style]="clickRegister ? 'margin-left: 0vw' : ''">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" style="padding-bottom: 20px; width: 450px;" class="register" [style]="clickRegister ? 'margin-left: 0vw' : ''">
         <span class="login-header">Registrate</span>
-		<label style=" margin-bottom: 20px;">Nombre completo:<input type="text" placeholder="Nombre"></label>
+		<label style=" margin-bottom: 20px;">Nombre completo:<input formControlName="name" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.name.errors }" [style]="submitted && registerForm.controls.name.errors ? 'outline: 1px solid #b30000;' : ''" type="text" placeholder="Nombre" ></label>
+        <div *ngIf="submitted && registerForm.controls.name.errors" class="validation-error">
+            <div *ngIf="registerForm.controls.name.errors.required">Is required</div>
+        </div>
 		<div style="width: 62%; display: inline-flex; justify-content: center; margin-bottom: 20px;">
-			<label style=" margin-right: 4%;">Nombre de usuario<input name="Nombre de usuario" type="text" placeholder="Nombre de usuario"></label>
-			<label style="margin-left: 4%;">Fecha de nacimiento:<input type="date"></label>
+            <div style="margin-right: 4%; display: flex; flex-direction: column; width: 62%;">
+			<label style="width: 100%;">Nombre de usuario<input [style]="submitted && registerForm.controls.username.errors ? 'outline: 1px solid #b30000;' : ''" formControlName="username" name="Nombre de usuario" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.name.errors }" type="text" placeholder="Nombre de usuario"></label>
+            <div style="width: 100%; margin-top: 3px; margin-bottom: -16.6px; margin-left: 10px;" *ngIf="submitted && registerForm.controls.username.errors" class="validation-error">
+                <div *ngIf="registerForm.controls.username.errors.required">Is required</div>
+            </div>
+            </div>
+            <div style="margin-left: 4%; display: flex; flex-direction: column; width: 62%;">
+			<label style="width: 100%;">Fecha de nacimiento:<input type="date" [style]="submitted && !uponAge ? 'outline: 1px solid #b30000;' : ''" formControlName="dateBirth" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.name.errors }"></label>
+            <div style="width: 100%; margin-top: 3px; margin-bottom: -16.6px; margin-left: 10px;" *ngIf="submitted && !uponAge" class="validation-error">
+                <div>You must be 13</div>
+            </div>
+            </div>
 		</div>
-        <label>Contraseña:<input style="margin-bottom: 20px;" type="password" placeholder="Contraseña"></label>
-        <label>Repite la contraseña:<input style="margin-bottom: 20px;" type="password" placeholder="Repite la contraseña"></label>
-		<label style=" margin-bottom: 0px;">Email<input type="text" placeholder="Email"></label>
+        <label>Contraseña:<input [style]="submitted && registerForm.controls.password.errors ? 'outline: 1px solid #b30000;' : ''" style="margin-bottom: 20px;" type="password" placeholder="Contraseña" formControlName="password" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.name.errors }"></label>
+        <div *ngIf="submitted && registerForm.controls.password.errors" class="validation-error">
+            <div *ngIf="registerForm.controls.password.errors.required">Is required</div>
+        </div>
+        <label>Repite la contraseña:<input [style]="submitted && registerForm.controls.repeatPass.errors ? 'outline: 1px solid #b30000;' : ''" style="margin-bottom: 20px;" formControlName="repeatPass" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.name.errors }" type="password" placeholder="Repite la contraseña"></label>
+		<div *ngIf="submitted && registerForm.controls.repeatPass.errors" class="validation-error">
+            <div *ngIf="registerForm.controls.repeatPass.errors.required">Is required</div>
+        </div>
+        <label style=" margin-bottom: 0px;">Email<input [style]="submitted && registerForm.controls.email.errors ? 'outline: 1px solid #b30000;' : ''" formControlName="email" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.name.errors }" type="email" placeholder="Email"></label>
+        <div style="margin-top: 3px;" *ngIf="submitted && registerForm.controls.email.errors" class="validation-error">
+            <div *ngIf="registerForm.controls.email.errors.required">Is required</div>
+            <div *ngIf="registerForm.controls.email.errors.email">Must be an email</div>
+        </div>
 		<div style="display: inline-flex; align-items: center; margin-top: 5px;"><input style="width: 16px; margin-right: 10px;" type="radio"> <label style="width: 100%;">He leido y acepto todos los terminos</label></div>
         <button class="login-button"><b>Registrarse</b></button>
-    </div>
+    </form>
     <div style="padding-bottom: 20px;" class="forgot" [style]="clickForgot ? 'margin-left: 0vw' : ''">
         <span class="login-header">Recuperar contraseña</span>
         <label>Nombre de usuario<input type="text" placeholder="Nombre de usuario"></label>
