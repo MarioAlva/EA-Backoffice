@@ -1,5 +1,6 @@
 import { Component, ElementRef } from '@angular/core';
 import navOptions from '../data/navOptions';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-root',

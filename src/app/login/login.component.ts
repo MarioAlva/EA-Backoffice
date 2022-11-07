@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import axios from 'axios';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,7 @@ export class LoginComponent implements OnInit {
   clickForgot: boolean; 
   date: Date;
   uponAge: boolean = false;
+  samepass: boolean = false;
 
   constructor(private formBuilder: FormBuilder) {
     this.registerForm = this.formBuilder.group({});
@@ -54,10 +56,17 @@ export class LoginComponent implements OnInit {
     }else {
       this.uponAge = false;
     } 
-    // stop the process here if form is invalid
-    if (this.registerForm.invalid) {
-        return;
-    }
-}
+	if(this.registerForm.value.password === this.registerForm.value.repeatPass){
+		this.samepass = true;
+	}else{
+		this.samepass = false;
+	}
+	if (this.registerForm.invalid || !this.uponAge || !this.samepass) {
+		return;
+	}
+	}
+	sendRegister(){
+		axios.post('http://localhost:3000/users', {
+	}
 
 }

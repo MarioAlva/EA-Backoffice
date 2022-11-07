@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms'; 
 import { RouterModule, Routes } from '@angular/router';
 
-import { SerieComponent } from './serie/serie.component';
+import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
-  { path: 'serie', component: SerieComponent },
+  { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent }
 ];
 
