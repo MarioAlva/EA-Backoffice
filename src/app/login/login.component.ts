@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import axios from 'axios';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +19,7 @@ export class LoginComponent implements OnInit {
   uponAge: boolean = false;
   samepass: boolean = false;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private _router: Router) {
     this.registerForm = this.formBuilder.group({});
     this.clickRegister = false;
     this.clickForgot = false;
@@ -66,7 +68,20 @@ export class LoginComponent implements OnInit {
 	}
 	}
 	sendRegister(){
-		axios.post('http://localhost:3000/users', {
+		if(!this.registerForm.invalid && this.uponAge && this.samepass){
+		axios.post('http://localhost:5432/api/users/register', {
+			name: this.registerForm.value.name,
+			username: this.registerForm.value.username,
+			password: this.registerForm.value.password,
+			email: this.registerForm.value.email,
+			birthdate: this.registerForm.value.dateBirth
+		}).then((response) => {
+			environment.auth = response.data.token;
+			this._router.navigate(['/'])
+		}).catch((error) => {
+			console.log(error);
+		});
+	}
 	}
 
 }
