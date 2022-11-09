@@ -7,14 +7,14 @@ const series = [
 		seasonsToWatch: 9,
     },
 	{
-		name: 'The Office',
+		name: 'The Big Bang Theory',
 		description: 'A mockumentary on a group of typical office workers, where the workday consists of ego clashes, inappropriate behavior, and tedium.',
 		seasons: 9,
 		seasonsWatched: 0,
 		seasonsToWatch: 9,
 	},
 	{
-        name: 'The Office',
+        name: 'Breaking Bad',
 		description: 'A mockumentary on a group of typical office workers, where the workday consists of ego clashes, inappropriate behavior, and tedium.',
 		seasons: 9,
 		seasonsWatched: 0,

@@ -11,8 +11,8 @@
 			  
 		</div>
 		<div class="home-carrousel">
-			<div *ngFor="let serie of series; index as serieIndex" [id]="'serie_' + serieIndex" class="home-eachSerie">
-				aqui vamos
+			<div *ngFor="let Serie of listSeries; index as serieIndex" [id]="'serie_' + serieIndex" class="home-eachSerie">
+				{{Serie.title}}
 			</div>
 		</div>
 		<div (click)="nextCarrousel()" class="home-arrowCarrousel">

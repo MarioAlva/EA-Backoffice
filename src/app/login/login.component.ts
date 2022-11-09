@@ -78,6 +78,7 @@ export class LoginComponent implements OnInit {
 		}).then((response) => {
 			environment.auth = response.data.token;
 			this._router.navigate(['/'])
+      console.log("hellooo");
 		}).catch((error) => {
 			console.log(error);
 		});
