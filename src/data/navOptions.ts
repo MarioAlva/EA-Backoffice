@@ -15,6 +15,13 @@ const navOptions = [
         exact: true,
 		auth: unAuth()
     },
+    {
+        name: 'Create Event',
+        path: '/create-event',
+        icon: '../assets/EventArrow.png',
+        exact: true,
+        auth: unAuth()
+    },
 ];
 
 function unAuth(){

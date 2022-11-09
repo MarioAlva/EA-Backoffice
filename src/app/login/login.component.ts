@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import axios from 'axios';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import {RouterModule} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -84,5 +85,17 @@ export class LoginComponent implements OnInit {
 		});
 	}
 	}
+
+  sendLogin(){
+    axios.post('http://localhost:5432/api/users/login', {
+      email: this.registerForm.value.email,
+      password: this.registerForm.value.password
+    }).then((response) => {
+      environment.auth = response.data.token;
+      this._router.navigate(['/'])
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
 
 }
