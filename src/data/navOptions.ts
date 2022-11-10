@@ -22,6 +22,13 @@ const navOptions = [
         exact: true,
         auth: unAuth()
     },
+    {
+        name: 'Show Events',
+        path: '/event-screen',
+        icon: '../assets/EventArrow.png',
+        exact: true,
+        auth: unAuth()
+    },
 ];
 
 function unAuth(){

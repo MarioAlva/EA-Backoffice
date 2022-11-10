@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { Serie } from '../models/Serie';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -14,6 +15,7 @@ import { Serie } from '../models/Serie';
 export class HomeComponent implements OnInit {
 
   listSeries : Serie[] = [];
+
 
   constructor() { }
 
@@ -32,6 +34,7 @@ export class HomeComponent implements OnInit {
 		scrollLeft: "-=300px"
 	}, "slow");
   }
+
   getSeries(){
 		const response = axios.get('http://localhost:5432/api/series/', {
 		}).then((response) => {
@@ -40,6 +43,8 @@ export class HomeComponent implements OnInit {
 			console.log(error);
 		});
 	}
+
+ 
   /*async function getUser() {
   try {
     const response = await axios.get('/user?ID=12345');
@@ -50,5 +55,6 @@ export class HomeComponent implements OnInit {
 }*/
 
   series = series;
+  
 
 }

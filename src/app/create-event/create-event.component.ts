@@ -42,7 +42,7 @@ export class CreateEventComponent implements OnInit {
 			//location: this.createEventForm.value.location
 		}).then((response) => {
 			environment.auth = response.data.token;
-			this._router.navigate(['/'])
+			this._router.navigate(['/event-screen'])
 		}).catch((error) => {
 			console.log(error);
 		});

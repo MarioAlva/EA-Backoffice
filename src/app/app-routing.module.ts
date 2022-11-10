@@ -5,12 +5,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { CreateEventComponent } from './create-event/create-event.component';
-
+import { EventScreenComponent } from './event-screen/event-screen.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'create-event', component: CreateEventComponent }
+  { path: 'create-event', component: CreateEventComponent },
+  { path: 'event-screen', component: EventScreenComponent }
 ];
 
 @NgModule({

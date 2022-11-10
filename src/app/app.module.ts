@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ClickOutsideDirective } from './click-outside.directive';
 import { CreateEventComponent } from './create-event/create-event.component';
+import { EventScreenComponent } from './event-screen/event-screen.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CreateEventComponent } from './create-event/create-event.component';
     LoginComponent,
     ClickOutsideDirective,
     HomeComponent,
-    CreateEventComponent
+    CreateEventComponent,
+    EventScreenComponent
   ],
   imports: [
     BrowserModule,
