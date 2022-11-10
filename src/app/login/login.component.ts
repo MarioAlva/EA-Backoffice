@@ -101,7 +101,7 @@ export class LoginComponent implements OnInit {
         email: this.loginForm.value.email,
         password: this.loginForm.value.password
       }).then((response) => {
-       // environment.auth = response.data.token;
+       environment.auth = response.data.token;
         this._router.navigate(['/'])
       }).catch((error) => {
         console.log(error);
