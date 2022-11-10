@@ -1,5 +1,6 @@
 import { Component, ElementRef } from '@angular/core';
 import navOptions from '../data/navOptions';
+import { environment } from 'src/environments/environment';
 import * as $ from 'jquery';
 
 @Component({
@@ -17,4 +18,8 @@ export class AppComponent {
   navOptions = navOptions;
   title = 'EA-FrontEnd';
   navbarOpen = false;
+  logout() {
+    environment.auth = null;
+    window.location.href = '/login';
+  }
 }

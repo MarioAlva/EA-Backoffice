@@ -34,6 +34,10 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(environment.auth);
+    if(environment.auth != null){
+      this._router.navigate(['/']);
+    }
     this.registerForm = this.formBuilder.group({
       name: ['', Validators.required],
       username: ['', Validators.required],
