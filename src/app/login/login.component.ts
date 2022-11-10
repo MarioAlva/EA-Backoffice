@@ -13,8 +13,11 @@ import {RouterModule} from '@angular/router';
 export class LoginComponent implements OnInit {
   
   registerForm: FormGroup;
+  loginForm: FormGroup;
+
   submitted = false;
   clickRegister: boolean;
+  clickLogin: boolean;
   clickForgot: boolean; 
   date: Date;
   uponAge: boolean = false;
@@ -22,7 +25,9 @@ export class LoginComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private _router: Router) {
     this.registerForm = this.formBuilder.group({});
+    this.loginForm = this.formBuilder.group({});
     this.clickRegister = false;
+    this.clickLogin = false;
     this.clickForgot = false;
     this.date = new Date();
   }
@@ -35,6 +40,10 @@ export class LoginComponent implements OnInit {
       repeatPass: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       dateBirth: [ String(this.date.getFullYear() + '-' + this.date.getMonth() + "-" + this.date.getDate()), Validators.required],
+    });
+    this.loginForm = this.formBuilder.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required],
     });
   }
 
@@ -87,15 +96,17 @@ export class LoginComponent implements OnInit {
 	}
 
   sendLogin(){
-    axios.post('http://localhost:5432/api/users/login', {
-      email: this.registerForm.value.email,
-      password: this.registerForm.value.password
-    }).then((response) => {
-      environment.auth = response.data.token;
-      this._router.navigate(['/'])
-    }).catch((error) => {
-      console.log(error);
-    });
+    if(!this.loginForm.invalid){
+     axios.post('http://localhost:5432/api/users/login', {
+        email: this.loginForm.value.email,
+        password: this.loginForm.value.password
+      }).then((response) => {
+       // environment.auth = response.data.token;
+        this._router.navigate(['/'])
+      }).catch((error) => {
+        console.log(error);
+      });
+    }
   }
 
 }

@@ -1,12 +1,20 @@
 <div class="login-container">
     <div class="login" [style]="clickRegister || clickForgot ? 'margin-right: 260vw; position: absolute' : ''">
-        <span class="login-header">Log in</span>
-            <label>Nombre de usuario:<input style="margin-bottom: 20px;" type="text" placeholder="Nombre de usuario"></label>
-            <label>Contraseña:<input required minlength="4" type="password" placeholder="Contraseña"></label>
-            <span class="login-forgot">¿Te has olvidado la contraseña? <a class="auth-link" (click)="clickForgot = true">Click aqui</a></span>
-            <button class="login-button"><b>Iniciar sesión</b></button>
-		<span style="display: flex; justify-content: center; align-items: center;" class="login-forgot">¿Aún no tienes una cuenta? <a class="auth-link" (click)="clickRegister = true">Registrate</a></span>
-    </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" style="padding-bottom: 40px; width: 450px;" class="login" [style]="clickLogin ? 'margin-left: 0vw' : ''">
+            <span class="login-header">Log in</span>
+                <label>Email:<input style="margin-bottom: 20px;" type="text" placeholder="Email"></label>
+                <div *ngIf="submitted && loginForm.controls.email.errors" class="validation-error">
+                    <div *ngIf="loginForm.controls.email.errors.required">Is required</div>
+                </div>
+                <label>Contraseña:<input style="margin-bottom: 20px;" type="password" placeholder="Password"></label>
+                <div *ngIf="submitted && loginForm.controls.password.errors" class="validation-error">
+                    <div *ngIf="loginForm.controls.password.errors.required">Is required</div>
+                </div>
+                <span class="login-forgot">¿Te has olvidado la contraseña? <a class="auth-link" (click)="clickForgot = true">Click aqui</a></span>
+                <button class="login-button" (click)="sendLogin()"><b>Iniciar sesión</b></button>
+		    <span style="display: flex; justify-content: center; align-items: center;" class="login-forgot">¿Aún no tienes una cuenta? <a class="auth-link" (click)="clickRegister = true">Registrate</a></span>
+        </form>
+        </div>
     <div class="back-button" [style]="clickRegister || clickForgot ? 'margin-right: 280vw' : ''" (click)="clickRegister = false; clickForgot = false">
     </div>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" style="padding-bottom: 20px; width: 450px;" class="register" [style]="clickRegister ? 'margin-left: 0vw' : ''">
