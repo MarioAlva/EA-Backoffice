@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   clickRegister: boolean;
   clickLogin: boolean;
   clickForgot: boolean; 
+  userDataErr: boolean = false;
   date: Date;
   uponAge: boolean = false;
   samepass: boolean = false;
@@ -88,7 +89,6 @@ export class LoginComponent implements OnInit {
 		}).then((response) => {
 			environment.auth = response.data.token;
 			this._router.navigate(['/'])
-      console.log("hellooo");
 		}).catch((error) => {
 			console.log(error);
 		});
@@ -105,6 +105,8 @@ export class LoginComponent implements OnInit {
         this._router.navigate(['/'])
       }).catch((error) => {
         console.log(error);
+        if (error.response.status === 404)
+          this.userDataErr=true;
       });
     }
   }

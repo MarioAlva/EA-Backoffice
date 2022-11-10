@@ -41,9 +41,8 @@ export class CreateEventComponent implements OnInit {
 		//	date: this.createEventForm.value.date,
 			//location: this.createEventForm.value.location
 		}).then((response) => {
-			//environment.auth = response.data.token;
+			environment.auth = response.data.token;
 			this._router.navigate(['/'])
-      console.log("hellooo");
 		}).catch((error) => {
 			console.log(error);
 		});

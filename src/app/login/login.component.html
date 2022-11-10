@@ -1,5 +1,6 @@
 <div class="login-container">
     <div class="login" [style]="clickRegister || clickForgot ? 'margin-right: 260vw; position: absolute' : ''">
+        
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" style="padding-bottom: 20px; width: 450px;" class="login" [style]="clickLogin ? 'margin-left: 0vw' : ''">
             <span class="login-header">Log in</span>
                 <label style=" margin-bottom: 20px;">Email:<input formControlName="email" [ngClass]="{ 'is-invalid': submitted && loginForm.controls.email.errors }" [style]="submitted && loginForm.controls.email.errors ? 'outline: 1px solid #b30000;' : ''" type="text" placeholder="Email" ></label>
@@ -9,9 +10,16 @@
                 <label style=" margin-bottom: 20px;">Password:<input formControlName="password" [ngClass]="{ 'is-invalid': submitted && loginForm.controls.password.errors }" [style]="submitted && loginForm.controls.password.errors ? 'outline: 1px solid #b30000;' : ''" type="password" placeholder="Password" ></label>
                 <div *ngIf="submitted && loginForm.controls.password.errors" class="validation-error">
                     <div *ngIf="loginForm.controls.password.errors.required">Is required</div>
+                    
                 </div>
                 <span class="login-forgot">¿Te has olvidado la contraseña? <a class="auth-link" (click)="clickForgot = true">Click aqui</a></span>
                 <button class="login-button" (click)="sendLogin()"><b>Iniciar sesión</b></button>
+                <div *ngIf="userDataErr" class="validation-error">
+                    <div class="alert alert-success" role="alert">
+                        Los datos introducidos no son correctos
+                    </div>
+                </div>
+
 		    <span style="display: flex; justify-content: center; align-items: center;" class="login-forgot">¿Aún no tienes una cuenta? <a class="auth-link" (click)="clickRegister = true">Registrate</a></span>
         </form>
         </div>
