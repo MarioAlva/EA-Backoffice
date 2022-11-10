@@ -24,9 +24,9 @@ export class CreateEventComponent implements OnInit {
     this.createEventForm = this.formBuilder.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
-      owner: ['', Validators.required],
-      date: ['', Validators.required],
-      location: ['', Validators.required],
+      //owner: ['', Validators.required],
+      //date: ['', Validators.required],
+      //location: ['', Validators.required],
     });
   }
   onSubmit() {
@@ -37,11 +37,11 @@ export class CreateEventComponent implements OnInit {
 		axios.post('http://localhost:5432/api/events/', {
 			title: this.createEventForm.value.title,
 			description: this.createEventForm.value.description,
-			owner: this.createEventForm.value.owner,
-			date: this.createEventForm.value.date,
-			location: this.createEventForm.value.location
+		//	owner: this.createEventForm.value.owner,
+		//	date: this.createEventForm.value.date,
+			//location: this.createEventForm.value.location
 		}).then((response) => {
-			environment.auth = response.data.token;
+			//environment.auth = response.data.token;
 			this._router.navigate(['/'])
       console.log("hellooo");
 		}).catch((error) => {

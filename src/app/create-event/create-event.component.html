@@ -7,11 +7,16 @@
         </div>
         <div style="width: 62%; display: inline-flex; justify-content: center; margin-bottom: 20px;">
             <div style="margin-right: 4%; display: flex; flex-direction: column; width: 62%;">
-			<label style="width: 100%;">Description<input [style]="submitted && createEventForm.controls.description.errors ? 'outline: 1px solid #b30000;' : ''" formControlDescription="description" description="Description" [ngClass]="{ 'is-invalid': submitted && createEventForm.controls.description.errors }" type="text" placeholder="Description"></label>
-            <div style="width: 100%; margin-top: 3px; margin-bottom: -16.6px; margin-left: 10px;" *ngIf="submitted && createEventForm.controls.description.errors" class="validation-error">
+			<label style="width: 100%;">Description:<input [style]="submitted && createEventForm.controls.description.errors ? 'outline: 1px solid #b30000;' : ''" formControlDescription="description" description="Description" [ngClass]="{ 'is-invalid': submitted && createEventForm.controls.description.errors }" type="text" placeholder="Description"></label>
+            <div *ngIf="submitted && createEventForm.controls.description.errors" class="validation-error">
                 <div *ngIf="createEventForm.controls.description.errors.required">Is required</div>
             </div>
             </div>
 		</div>
+        <button class="create-event-button" (click)="sendCreateEvent()"><b>Crear Evento</b></button>
+    </form>
+</div>
+
+
 
    
