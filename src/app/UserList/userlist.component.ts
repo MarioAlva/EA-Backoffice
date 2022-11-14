@@ -49,7 +49,7 @@ export class UserListComponent implements OnInit {
     if(!this.UserListForm.invalid){
       const response = axios.delete(`http://localhost:5432/api/users/${id}`)
       .then((response) => {
-      this._router.navigate(['/userlist'])
+      this.getUsers();
  
       }).catch((error) => {
         console.log(error);
