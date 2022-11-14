@@ -13,9 +13,9 @@
             <td style="color:rgb(255, 255, 255)">{{User.name}}</td>
             <td style="color:rgb(255, 255, 255)">{{User.email}}</td>
             <td style="color:rgb(255, 255, 255)">{{User.username}}</td>
-            <td style="color:rgb(255, 255, 255)">{{User.birthdate}}</td>
+            <td style="color:rgb(255, 255, 255)">{{User._id}}</td>
             <td>
-                <button class="delete-button" (click)="deleteUser(User.id!)">
+                <button class="delete-button" (click)="deleteUser(User._id!)">
                     Delete
                 </button>
             </td>

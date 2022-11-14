@@ -37,7 +37,7 @@ export class UserListComponent implements OnInit {
     this.getUsers();
   }
   getUsers(){
-		const response = axios.get('http://localhost:5432/api/users/', {
+		const response = axios.get(`http://localhost:5432/api/users/`, {
 		}).then((response) => {
       this.listUsers = response.data;
 		}).catch((error) => {
@@ -45,10 +45,11 @@ export class UserListComponent implements OnInit {
 		});
 	}
   deleteUser(id: String){
+    console.log(id);
     if(!this.UserListForm.invalid){
-      axios.delete(`http://localhost:5432/api/users/${id}`)
+      const response = axios.delete(`http://localhost:5432/api/users/${id}`)
       .then((response) => {
-        this._router.navigate(['/userlist'])
+      this._router.navigate(['/userlist'])
  
       }).catch((error) => {
         console.log(error);
