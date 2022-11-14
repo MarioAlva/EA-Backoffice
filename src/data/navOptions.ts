@@ -29,6 +29,13 @@ const navOptions = [
         exact: true,
         auth: unAuth()
     },
+    {
+        name: 'User List',
+        path: '/userlist',
+        icon: '../assets/User.png',
+        exact: true,
+        auth: unAuth()
+    },
 ];
 
 function unAuth(){
