@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private _router: Router) {
     this.registerForm = this.formBuilder.group({});
     this.loginForm = this.formBuilder.group({});
-    this.clickRegister = true;
+    this.clickRegister = false;
     this.clickLogin = false;
     this.clickForgot = false;
     this.date = new Date();

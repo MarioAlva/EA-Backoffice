@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import series from '../../data/series';
+import series from '../../../data/series';
 import * as $ from 'jquery';
 import axios from 'axios';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import { Serie } from '../models/Serie';
+import { Serie } from '../../models/Serie';
 
 
 @Component({

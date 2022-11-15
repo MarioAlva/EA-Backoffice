@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import axios from 'axios';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import { User } from '../models/User';
+import { User } from '../../models/User';
 
 @Component({
   selector: 'app-userlist',

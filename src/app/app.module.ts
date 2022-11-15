@@ -6,12 +6,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 import { ClickOutsideDirective } from './click-outside.directive';
-import { CreateEventComponent } from './create-event/create-event.component';
-import { EventScreenComponent } from './event-screen/event-screen.component';
-import { UserListComponent } from './UserList/userlist.component';
+import { CreateEventComponent } from './components/create-event/create-event.component';
+import { EventScreenComponent } from './components/event-screen/event-screen.component';
+import { UserListComponent } from './components/UserList/userlist.component';
 import { UsersUpdateComponent } from './components/users-update/users-update.component';
 
 @NgModule({

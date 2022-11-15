@@ -3,7 +3,7 @@ import * as $ from 'jquery';
 import axios from 'axios';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import { Event } from '../models/Event';
+import { Event } from '../../models/Event';
 
 @Component({
   selector: 'app-event-screen',
