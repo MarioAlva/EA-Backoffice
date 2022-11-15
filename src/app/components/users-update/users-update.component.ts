@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import axios from 'axios';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import {RouterModule} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import axios from 'axios';
+import { Observable } from 'rxjs';
+import { User } from 'src/app/models/User';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-users-update',
+  templateUrl: './users-update.component.html',
+  styleUrls: ['./users-update.component.css']
 })
-export class LoginComponent implements OnInit {
-  
+export class UsersUpdateComponent implements OnInit {
   registerForm: FormGroup;
-  loginForm: FormGroup;
-
   submitted = false;
   clickRegister: boolean;
   clickLogin: boolean;
@@ -24,34 +23,60 @@ export class LoginComponent implements OnInit {
   uponAge: boolean = false;
   samepass: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private _router: Router) {
+  user:User={
+    _id:"",
+    name:"",
+	  username:"",
+	  password:"",
+	  birthdate:new Date(),
+	  email:""
+  }
+  constructor(private formBuilder: FormBuilder, private _router: Router, private activedRoute: ActivatedRoute) {
     this.registerForm = this.formBuilder.group({});
-    this.loginForm = this.formBuilder.group({});
     this.clickRegister = true;
     this.clickLogin = false;
     this.clickForgot = false;
     this.date = new Date();
-  }
+   }
 
   ngOnInit(): void {
-    console.log(environment.auth);
-    if(environment.auth != null){
-      this._router.navigate(['/']);
-    }
+    const params = this.activedRoute.snapshot.params;
+    console.log(params);
+    this.getUser(params._id);
     this.registerForm = this.formBuilder.group({
       name: ['', Validators.required],
       username: ['', Validators.required],
       password: ['', Validators.required],
       repeatPass: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      dateBirth: [ String(this.date.getFullYear() + '-' + this.date.getMonth() + "-" + this.date.getDate()), Validators.required],
-    });
-    this.loginForm = this.formBuilder.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
+      dateBirth: [ String(this.user.birthdate.getFullYear() + '-' + this.user.birthdate.getMonth() + "-" + this.user.birthdate.getDate()), Validators.required],
     });
   }
-
+  getUser(id:String){
+		const response = axios.get(`http://localhost:5432/api/users/profile/${id}`, {
+		}).then((response) => {
+      console.log(response);
+      this.user=response.data;
+		}).catch((error) => {
+			console.log(error);
+		});
+    
+	}
+  updateUser() {
+    axios.put(`http://localhost:5432/api/users/`, {
+      _id: this.user._id,
+			name: this.registerForm.value.name,
+			username: this.registerForm.value.username,
+			email: this.registerForm.value.email,
+			birthdate: this.registerForm.value.dateBirth
+		})
+    .then((response) => {
+      this._router.navigate(['/userlist'])
+    }).catch((error) => {
+      console.log(error);
+    });
+    //return this.http.put(`${this.API_URI}/`, user);
+  }
   onSubmit() {
     let date = new Date();
     let birthday = new Date(this.registerForm.value.dateBirth);
@@ -82,37 +107,5 @@ export class LoginComponent implements OnInit {
 		return;
 	}
 	}
-	sendRegister(){
-		if(!this.registerForm.invalid && this.uponAge && this.samepass){
-		axios.post('http://localhost:5432/api/users/register', {
-			name: this.registerForm.value.name,
-			username: this.registerForm.value.username,
-			password: this.registerForm.value.password,
-			email: this.registerForm.value.email,
-			birthdate: this.registerForm.value.dateBirth
-		}).then((response) => {
-			environment.auth = response.data.token;
-			this._router.navigate(['/'])
-		}).catch((error) => {
-			console.log(error);
-		});
-	}
-	}
-
-  sendLogin(){
-    if(!this.loginForm.invalid){
-     axios.post('http://localhost:5432/api/users/login', {
-        email: this.loginForm.value.email,
-        password: this.loginForm.value.password
-      }).then((response) => {
-       environment.auth = response.data.token;
-        this._router.navigate(['/'])
-      }).catch((error) => {
-        console.log(error);
-        if (error.response.status === 404)
-          this.userDataErr=true;
-      });
-    }
-  }
 
 }

@@ -12,6 +12,7 @@ import { ClickOutsideDirective } from './click-outside.directive';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { EventScreenComponent } from './event-screen/event-screen.component';
 import { UserListComponent } from './UserList/userlist.component';
+import { UsersUpdateComponent } from './components/users-update/users-update.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UserListComponent } from './UserList/userlist.component';
     HomeComponent,
     CreateEventComponent,
     EventScreenComponent,
-    UserListComponent
+    UserListComponent,
+    UsersUpdateComponent
   ],
   imports: [
     BrowserModule,

@@ -57,5 +57,9 @@ export class UserListComponent implements OnInit {
       /*return this.http.delete(`${this.API_URI}/${id}`);*/
     }
   }
+  go2UpdateUser(id: String){
+    this._router.navigate([`/user-update/${id}`])
+  }
+
 
 }
