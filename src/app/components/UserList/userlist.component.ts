@@ -17,16 +17,7 @@ export class UserListComponent implements OnInit {
   clickCreateEvent: boolean;
   listUsers : User[] = [];
   
-  /*colDef: ColDef[]=[
-    {field: '_id'},
-    {field: 'name'},
-    {field: 'email'},
-    {field: 'birthday'}
-  ]
-  public defaultColDef: ColDef = {
-    sortable: true,
-    filter: true,
-  };*/
+
   constructor(private formBuilder: FormBuilder, private _router: Router) { 
     this.UserListForm = this.formBuilder.group({});
     this.clickCreateEvent = false;
@@ -54,11 +45,10 @@ export class UserListComponent implements OnInit {
       }).catch((error) => {
         console.log(error);
       });
-      /*return this.http.delete(`${this.API_URI}/${id}`);*/
     }
   }
   go2UpdateUser(id: String){
-    this._router.navigate([`/user-update/${id}`])
+    this._router.navigate([`/users-update/${id}`])
   }
 
 

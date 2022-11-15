@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'create-event', component: CreateEventComponent },
   { path: 'event-screen', component: EventScreenComponent },
   { path: 'userlist', component: UserListComponent },
-  { path: 'user-update/:_id', component: UsersUpdateComponent },
+  { path: 'users-update/:_id', component: UsersUpdateComponent },
 ];
 
 @NgModule({
