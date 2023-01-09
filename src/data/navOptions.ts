@@ -36,6 +36,12 @@ const navOptions = [
         exact: true,
         auth: unAuth()
     },
+    {
+        name: 'Create Serie',
+        path: '/create-serie',
+        exact: true,
+        auth: true
+    }
 ];
 
 function unAuth(){

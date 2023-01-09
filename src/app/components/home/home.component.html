@@ -12,7 +12,8 @@
 		</div>
 		<div class="home-carrousel">
 			<div *ngFor="let Serie of listSeries; index as serieIndex" [id]="'serie_' + serieIndex" class="home-eachSerie">
-				{{Serie.title}}
+				<div class="text">{{Serie.title}}</div>
+				<img src={{Serie.poster_path}}  height=100>
 			</div>
 		</div>
 		<div (click)="nextCarrousel()" class="home-arrowCarrousel">

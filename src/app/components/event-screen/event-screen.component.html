@@ -10,7 +10,7 @@
 		<div class="eventscreen-carrousel">
 			<div *ngFor="let Event of listEvent; index as eventIndex" [id]="'event_' + eventIndex" class="eventscreen-eachEvent">
 				<div class="text">{{Event.title}}</div>
-                <img src="https://ae01.alicdn.com/kf/HTB1QCxBXuP2gK0jSZFoq6yuIVXag/Carteles-de-pel-culas-Breaking-Bad-carteles-de-pel-culas-Vintage-de-EE-UU-Papel-Kraft.jpg_Q90.jpg_.webp" style="width:100%">
+                <img src={{Event.image}}  height=100>
 			</div>
 		</div>
 		<div (click)="nextCarrousel()" class="eventscreen-arrowCarrousel">
