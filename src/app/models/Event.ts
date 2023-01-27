@@ -1,4 +1,5 @@
 export class Event{
+    _id?:String;
     title: String;
     image:String;
     description: String;
@@ -10,7 +11,7 @@ export class Event{
     vote_average: Number;
     vote_count: Number;
 
-    constructor(title: String,
+    constructor(id: String, title: String,
         image:String,
         description: String,
         owner: String,
@@ -20,6 +21,7 @@ export class Event{
         comments: [],
         vote_average: Number,
         vote_count: Number){
+            this._id=id;
             this.title=title;
             this.image=image;
             this.description= description;

@@ -6,15 +6,16 @@ import { ActivatedRoute } from '@angular/router';
 import axios from 'axios';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/models/User';
+import { Serie } from 'src/app/models/Serie';
 import { HttpParams } from '@angular/common/http';
 import { __values } from 'tslib';
 
 @Component({
-  selector: 'app-users-update',
-  templateUrl: './users-update.component.html',
-  styleUrls: ['./users-update.component.css']
+  selector: 'app-series-update',
+  templateUrl: './series-update.component.html',
+  styleUrls: ['./series-update.component.css']
 })
-export class UsersUpdateComponent implements OnInit {
+export class SeriesUpdateComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
   clickRegister: boolean;
@@ -25,13 +26,11 @@ export class UsersUpdateComponent implements OnInit {
   uponAge: boolean = false;
   samepass: boolean = false;
 
-  user:User={
+  serie:Serie={
     _id:"",
-    name:"",
-	  username:"",
-	  password:"",
-	  birthdate:new Date(""),
-	  email:""
+    title:"",
+	  overview:"",
+	  status:""
   }
   constructor(private formBuilder: FormBuilder, private _router: Router, private activedRoute: ActivatedRoute) {
     this.registerForm = this.formBuilder.group({});
@@ -44,53 +43,44 @@ export class UsersUpdateComponent implements OnInit {
   ngOnInit(): void {
     const params = this.activedRoute.snapshot.params;
     console.log(params);
-    this.getUser(params._id);
+    this.getSerie(params._id);
     this.registerForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      username: ['', Validators.required],
-      password: ['', Validators.required],
+      title: ['', Validators.required],
+      overview: ['', Validators.required],
+      status: ['', Validators.required],
       repeatPass: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      dateBirth: [ String(this.user.birthdate.getFullYear() + '-' + this.user.birthdate.getMonth() + "-" + this.user.birthdate.getDate()), Validators.required],
     });
   }
-  getUser(id:string){
+  getSerie(id:string){
 		//const response = axios.get(`http://api1.tvtracker.tk/api/users/profile/${id}`, {
-    const response = axios.get(`http://localhost:5432/api/users/profile/${id}`, {
+    const response = axios.get(`http://localhost:5432/api/series/${id}`, {
 
 		}).then((response) => {
       console.log(response);
-      this.user=response.data;
+      this.serie=response.data;
 		}).catch((error) => {
 			console.log(error);
 		});
     
 	}
-  updateUser(id: any) {
-
-    let date1 = this.registerForm.value.dateBirth;
+  updateSerie(id: any) {
     console.log("aqui");
-    console.log(date1);
     
-    if (date1 === "NaN-NaN-NaN") {
-      console.log("pasa");
-      this.registerForm.value.dateBirth = this.user.birthdate;
-    }
 
-    axios.put(`http://localhost:5432/api/users/${id}` , {
-
-			name: this.registerForm.value.name,
-			username: this.registerForm.value.username,
-			email: this.registerForm.value.email,
-			birthdate: this.registerForm.value.dateBirth,
+    axios.put(`http://localhost:5432/api/series/${id}` , {
+			title: this.registerForm.value.title,
+			overview: this.registerForm.value.overview,
+			status: this.registerForm.value.status,
 		})
     .then((response) => {
-      this._router.navigate(['/userlist'])
+      this._router.navigate(['/series-list'])
     }).catch((error) => {
       console.log(error);
     });
   }
   onSubmit() {
+  
 	}
 
 }

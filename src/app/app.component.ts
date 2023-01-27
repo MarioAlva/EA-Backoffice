@@ -16,7 +16,7 @@ export class AppComponent {
 		}, 1);
 	}
   navOptions = navOptions;
-  title = 'EA-FrontEnd';
+  title = 'EA-BackOffice';
   navbarOpen = false;
   logout() {
     environment.auth = null;

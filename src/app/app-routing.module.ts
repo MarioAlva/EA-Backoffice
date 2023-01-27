@@ -9,8 +9,9 @@ import { EventScreenComponent } from './components/event-screen/event-screen.com
 import { UserListComponent } from './components/UserList/userlist.component';
 import { UsersUpdateComponent } from './components/users-update/users-update.component';
 import { CreateSerieComponent } from './create-serie/create-serie.component';
-
-
+import { SeriesListComponent } from './components/series-list/series-list.component';
+import { ReportsListComponent } from './components/reports-list/reports-list.component';
+import { SeriesUpdateComponent } from './components/series-update/series-update.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
@@ -19,6 +20,9 @@ const routes: Routes = [
   { path: 'userlist', component: UserListComponent },
   { path: 'users-update/:_id', component: UsersUpdateComponent },
   { path: 'create-serie', component: CreateSerieComponent },
+  { path: 'series-list', component: SeriesListComponent},
+  { path: 'reports-list', component: ReportsListComponent},
+  { path: 'series-update/:_id', component: SeriesUpdateComponent}
 ];
 
 @NgModule({

@@ -36,7 +36,9 @@ export class HomeComponent implements OnInit {
   }
 
   getSeries(){
-		const response = axios.get('http://localhost:5432/api/series/', {
+		//const response = axios.get('http://api1.tvtracker.tk/api/series/', {
+    const response = axios.get('http://localhost:5432/api/series/', {
+
 		}).then((response) => {
       this.listSeries = response.data;
 		}).catch((error) => {

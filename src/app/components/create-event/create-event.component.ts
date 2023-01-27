@@ -71,6 +71,7 @@ export class CreateEventComponent implements OnInit {
   sendCreateEvent(){
 		if(!this.createEventForm.invalid){
 		axios.post('http://localhost:5432/api/events/', {
+    //axios.post('http://api1.tvtracker.tk/api/events/', {
 			title: this.createEventForm.value.title,
 			description: this.createEventForm.value.description,
       image: this.imageSaved

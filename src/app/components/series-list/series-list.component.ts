@@ -4,27 +4,27 @@ import axios from 'axios';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { User } from '../../models/User';
-import { Event } from '../../models/Event';
+import { Serie } from '../../models/Serie';
 @Component({
-  selector: 'app-event-list',
-  templateUrl: './event-screen.component.html',
-  styleUrls: ['./event-screen.component.css']
+  selector: 'app-series-list',
+  templateUrl: './series-list.component.html',
+  styleUrls: ['./series-list.component.css']
 })
-export class EventScreenComponent implements OnInit {
-  EventListForm: FormGroup;
+export class SeriesListComponent implements OnInit {
+  SerieListForm: FormGroup;
   submitted = false;
   clickCreateEvent: boolean;
-  listEvents : Event[] = [];
+  listSeries : Serie[] = [];
   
 
   constructor(private formBuilder: FormBuilder, private _router: Router) { 
-    this.EventListForm = this.formBuilder.group({});
+    this.SerieListForm = this.formBuilder.group({});
     this.clickCreateEvent = false;
   }
   rowData$!:any;
 
   ngOnInit(): void {
-    this.getEvents();
+    this.getSeries();
   }
   // console.log(localStorage.getItem('token'));
   //   return await axios.get(`${API}`, {
@@ -32,34 +32,34 @@ export class EventScreenComponent implements OnInit {
   //           'x-access-token': localStorage.getItem('token')
   //       }
   //   });
-  getEvents(){
+  getSeries(){
 		// const response = axios.get(`http://api1.tvtracker.tk/api/series/`, {
     //   headers: {
     //     'x-access-token': localStorage.getItem('token')
     //   }
-    const response = axios.get(`http://localhost:5432/api/events/`, {
+    const response = axios.get(`http://localhost:5432/api/series/`, {
 
 		}).then((response) => {
-      this.listEvents = response.data;
+      this.listSeries = response.data;
 		}).catch((error) => {
 			console.log(error);
 		});
 	}
-  deleteEvent(id: String){
+  deleteSerie(id: String){
     console.log(id);
-    if(!this.EventListForm.invalid){
+    if(!this.SerieListForm.invalid){
       //const response = axios.delete(`http://api1.tvtracker.tk/api/series/${id}`)
-      const response = axios.delete(`http://localhost:5432/api/events/${id}`)
+      const response = axios.delete(`http://localhost:5432/api/series/${id}`)
       .then((response) => {
-      this.getEvents();
+      this.getSeries();
  
       }).catch((error) => {
         console.log(error);
       });
     }
   }
-  go2UpdateEvent(id: String){
-    this._router.navigate([`/users-update/${id}`])
+  go2UpdateSerie(id: String){
+    this._router.navigate([`/series-update/${id}`])
   }
 
 

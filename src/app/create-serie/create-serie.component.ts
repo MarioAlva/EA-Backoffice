@@ -65,6 +65,7 @@ export class CreateSerieComponent implements OnInit {
 
   sendCreateSerie() {
     if(!this.createSerieForm.invalid){
+      //axios.post('http://api1.tvtracker.tk/api/series/', {
       axios.post('http://localhost:5432/api/series/', {
         title: this.createSerieForm.value.title,
         overview: this.createSerieForm.value.description,

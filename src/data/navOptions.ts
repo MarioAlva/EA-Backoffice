@@ -39,6 +39,21 @@ const navOptions = [
     {
         name: 'Create Serie',
         path: '/create-serie',
+        icon: '../assets/EventArrow.png',
+        exact: true,
+        auth: true
+    },
+    {
+        name: 'Show Series',
+        path: '/series-list',
+        icon: '../assets/EventArrow.png',
+        exact: true,
+        auth: true
+    },
+    {
+        name: 'Show Reports',
+        path: '/reports-list',
+        icon: '../assets/EventArrow.png',
         exact: true,
         auth: true
     }

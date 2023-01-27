@@ -4,9 +4,20 @@
   }
   
   .delete-button{
-	background-color: #ffffff;
+	background-color: #ff0000;
 	color: #1b1818;
-	border-radius: 7px;
+	border-radius: 20px;
+	width: 120px;
+	max-width: 50vw;
+	border: none;
+	margin-top: 20px;
+	padding: 8px 0;
+	cursor: pointer;
+}
+.update-button{
+	background-color: #51ff00;
+	color: #1b1818;
+	border-radius: 20px;
 	width: 120px;
 	max-width: 50vw;
 	border: none;

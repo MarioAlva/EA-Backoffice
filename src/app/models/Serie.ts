@@ -1,19 +1,21 @@
 export class Serie {
-    title: String;
-    overview: String;
-    poster_path: String;
-    trailer_path: String;
-    vote_average: Number;
-    vote_count: Number;
-    number_of_seasons: Number;
-    number_of_episodes: Number;
-    genres: [];
-    status: String;
-    networks: [];
-    episodes: [];
-    comments: [];
+    _id?:String;
+    title?: String;
+    overview?: String;
+    poster_path?: String;
+    trailer_path?: String;
+    vote_average?: Number;
+    vote_count?: Number;
+    number_of_seasons?: Number;
+    number_of_episodes?: Number;
+    genres?: [];
+    status?: String;
+    networks?: [];
+    episodes?: [];
+    comments?: [];
 
-    constructor(title: String, overview: String, poster_path: String, trailer_path: String, vote_average: Number, vote_count: Number, number_of_seasons: Number, number_of_episodes: Number, genres: [], status: String, networks: [], episodes: [], comments: []){
+    constructor(id: String, title: String, overview: String, poster_path: String, trailer_path: String, vote_average: Number, vote_count: Number, number_of_seasons: Number, number_of_episodes: Number, genres: [], status: String, networks: [], episodes: [], comments: []){
+        this._id=id;
         this.title = title;
         this.overview = overview;
         this.poster_path = poster_path;

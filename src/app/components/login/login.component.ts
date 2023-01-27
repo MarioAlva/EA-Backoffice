@@ -84,7 +84,9 @@ export class LoginComponent implements OnInit {
 	}
 	sendRegister(){
 		if(!this.registerForm.invalid && this.uponAge && this.samepass){
-		axios.post('http://localhost:5432/api/users/register', {
+		//axios.post('https://api1.tvtracker.tk/api/users/register', {
+    axios.post('http://localhost:5432/api/users/register', {
+
 			name: this.registerForm.value.name,
 			username: this.registerForm.value.username,
 			password: this.registerForm.value.password,
@@ -101,7 +103,9 @@ export class LoginComponent implements OnInit {
 
   sendLogin(){
     if(!this.loginForm.invalid){
-     axios.post('http://localhost:5432/api/users/login', {
+     //axios.post('https://api1.tvtracker.tk/api/auth/login', {
+     axios.post('http://localhost:5432/api/auth/login', {
+
         email: this.loginForm.value.email,
         password: this.loginForm.value.password
       }).then((response) => {

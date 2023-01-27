@@ -14,6 +14,10 @@ import { EventScreenComponent } from './components/event-screen/event-screen.com
 import { UserListComponent } from './components/UserList/userlist.component';
 import { UsersUpdateComponent } from './components/users-update/users-update.component';
 import { CreateSerieComponent } from './create-serie/create-serie.component';
+import { SeriesListComponent } from './components/series-list/series-list.component';
+import { ReportsListComponent } from './components/reports-list/reports-list.component';
+import { SeriesUpdateComponent } from './components/series-update/series-update.component';
+import { EventsUpdateComponent } from './components/events-update/events-update.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,11 @@ import { CreateSerieComponent } from './create-serie/create-serie.component';
     EventScreenComponent,
     UserListComponent,
     UsersUpdateComponent,
-    CreateSerieComponent
+    CreateSerieComponent,
+    SeriesListComponent,
+    ReportsListComponent,
+    SeriesUpdateComponent,
+    EventsUpdateComponent,
   ],
   imports: [
     BrowserModule,

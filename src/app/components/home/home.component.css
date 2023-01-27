@@ -23,6 +23,11 @@
 	font-family:fantasy;
 	font-size: 48px;
 }
+.version-title{
+	color: #ffffff;
+	font-family:fantasy;
+	font-size: 24px;
+}
 
 .home-carrousel{
 	height: 200px;
