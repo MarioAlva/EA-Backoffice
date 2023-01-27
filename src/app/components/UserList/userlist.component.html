@@ -5,8 +5,9 @@
     <table class="table table-striped">
         <tr>
             <td>Name</td>
-            <td>Username</td>
             <td>Email</td>
+            <td>Password</td>
+            <td>Username</td>
             <td>Birthdate</td>
             <td>ID</td>
 
@@ -14,6 +15,7 @@
         <tr *ngFor="let User of listUsers">
             <td style="color:rgb(255, 255, 255)">{{User.name}}</td>
             <td style="color:rgb(255, 255, 255)">{{User.email}}</td>
+            <td style="color:rgb(255, 255, 255)">{{User.password}}</td>
             <td style="color:rgb(255, 255, 255)">{{User.username}}</td>
             <td style="color:rgb(255, 255, 255)">{{User.birthdate}}</td>
             <td style="color:rgb(255, 255, 255)">{{User._id}}</td>
