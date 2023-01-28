@@ -59,7 +59,7 @@ export class EventScreenComponent implements OnInit {
     }
   }
   go2UpdateEvent(id: String){
-    this._router.navigate([`/users-update/${id}`])
+    this._router.navigate([`/events-update/${id}`])
   }
 
 

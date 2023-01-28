@@ -1,15 +1,15 @@
 export class Event{
     _id?:String;
-    title: String;
-    image:String;
-    description: String;
-    owner:String;
-    date: Date;
-    location: String;
-    participants: [];
-    comments: [];
-    vote_average: Number;
-    vote_count: Number;
+    title?: String;
+    image?:String;
+    description?: String;
+    owner?:String;
+    date?: Date;
+    location?: String;
+    participants?: [];
+    comments?: [];
+    vote_average?: Number;
+    vote_count?: Number;
 
     constructor(id: String, title: String,
         image:String,
