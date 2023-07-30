@@ -9,6 +9,35 @@ const navOptions = [
 		auth: true
     },
     {
+        name: 'User',
+        path: '/user-screen',
+        icon: '../assets/User.png',
+        exact: true,
+        auth: true
+    },
+    {
+        name: 'Blog',
+        path: '/blog-screen',
+        icon: '../assets/blog.png',
+        exact: true,
+        auth: unAuth()
+
+    },
+    {
+        name: 'Meeting',
+        path: '/meeting-screen',
+        icon: '../assets/meeting.png',
+        exact: true,
+        auth: unAuth()
+    },
+    {
+        name: 'Report',
+        path: '/report-screen',
+        icon: '../assets/report.png',
+        exact: true,
+        auth: unAuth()
+    },
+    {
         name: 'Log in',
         path: '/login',
         icon: '../assets/login.png',
@@ -56,7 +85,8 @@ const navOptions = [
         icon: '../assets/EventArrow.png',
         exact: true,
         auth: true
-    }
+    },
+
 ];
 
 function unAuth(){

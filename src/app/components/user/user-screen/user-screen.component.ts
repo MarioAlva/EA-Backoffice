@@ -1,27 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import axios from 'axios';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import axios from 'axios';
+import { User } from '../../../models/User';
 import { environment } from 'src/environments/environment';
-import { User } from '../../models/User';
+
 
 @Component({
-  selector: 'app-userlist',
-  templateUrl: './userlist.component.html',
-  styleUrls: ['./userlist.component.css']
+  selector: 'app-user-screen',
+  templateUrl: './user-screen.component.html',
+  styleUrls: ['./user-screen.component.css']
 })
-export class UserListComponent implements OnInit {
-
+export class UserScreenComponent implements OnInit {
   UserListForm: FormGroup;
   submitted = false;
   clickCreateEvent: boolean;
   listUsers : User[] = [];
-  
 
   constructor(private formBuilder: FormBuilder, private _router: Router) { 
     this.UserListForm = this.formBuilder.group({});
     this.clickCreateEvent = false;
   }
+
   rowData$!:any;
 
   ngOnInit(): void {
@@ -53,6 +53,5 @@ export class UserListComponent implements OnInit {
   go2UpdateUser(id: String){
     this._router.navigate([`/users-update/${id}`])
   }
-
 
 }
